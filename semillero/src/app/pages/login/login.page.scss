@@ -1,0 +1,53 @@
+.ppal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"] {
+    margin: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 80%;
+    color:rgb(0, 0, 0, 0.65)
+  }
+
+  input[type="email"] {
+    margin: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 80%;
+    color:rgb(0, 0, 0, 0.65)
+  }
+
+  input[type="password"] {
+    margin: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 80%;
+    color:rgb(0, 0, 0, 0.65)
+  }
+
+  ion-img::part(image) {
+
+    height: auto;
+    width: 100%;
+    padding-bottom: 15px;
+    align-self: center;
+    
+    
+     
+   }
+
+    .title{
+       display:flex;
+       flex-direction: row;
+   }
+ 
