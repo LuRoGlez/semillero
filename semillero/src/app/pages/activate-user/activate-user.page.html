@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Panel de Activación</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-list>
+<ion-item-list *ngFor="let user of users" >
+    <ion-item *ngIf="user.actived==0">
+      <ion-grid>
+        <ion-row>
+        <ion-col size="7">
+        {{user.name}}  {{user.surname}}
+      </ion-col>
+      <ion-col>
+        <ion-button color="primary" (click)="Activate(user.id)">Activar </ion-button>
+      </ion-col>
+    </ion-row>
+      </ion-grid>
+    </ion-item>     
+  </ion-item-list>
+</ion-list>
+</ion-content>

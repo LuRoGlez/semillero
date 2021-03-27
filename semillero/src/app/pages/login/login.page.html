@@ -5,16 +5,16 @@
       <ion-img alt="logo" src="/assets/img/logo.png"></ion-img>
     </div>
     <div *ngIf="registrado" class="login">
-      <input type="email" name="email" placeholder="Email" [formControl]="email">
-      <input type="password" name="password" placeholder="Contraseña" [formControl]="password">
+      <input type="email" name="email" placeholder="Email" [(ngModel)]="email">
+      <input type="password" name="password" placeholder="Contraseña" [(ngModel)]="password">
     <p button="true" class="login" (click)=login()>iniciar sesión</p>
     <p button="true" class="register" *ngIf="registrado" (click)=registrarse()>registrarse</p>
   </div>
   <div *ngIf="noReg" class="login">
-    <input type="text" name="name" placeholder="Nombre" [formControl]="name">
-    <input type="email" name="email" placeholder="Email" [formControl]="email">
-    <input type="password" name="password" placeholder="Contraseña" [formControl]="password">
-    <input type="password" name="c_password" placeholder="Confirmar Contraseña" [formControl]="c_password">
+    <input type="text" name="name" placeholder="Nombre" [(ngModel)]="name">
+    <input type="text" name="surname" placeholder="Apellido" [(ngModel)]="surname">
+    <input type="email" name="email" placeholder="Email" [(ngModel)]="email">
+    <input type="password" name="password" placeholder="Contraseña" [(ngModel)]="password">
     <p button="true" (click)=crearCuenta()>CREAR CUENTA</p>
     <p button="true" class="register" (click)=changeLogin()>iniciar sesión</p>
   </div>

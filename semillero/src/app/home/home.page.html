@@ -1,20 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Pantalla Principal
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content >
+  <section *ngFor="let user of users">
+  <div *ngIf="user.id==userId && user.actived==0">
+  <h2>¡SU CUENTA AÚN NO ESTÁ ACTIVADA!</h2>
+</div>
+<div *ngIf="user.id==userId && user.actived==1">
+  <h1>Bienvenido</h1>
+  <h2>Su cuenta ya ha sido activada por el administrador</h2>
+</div>
+</section>
 </ion-content>
