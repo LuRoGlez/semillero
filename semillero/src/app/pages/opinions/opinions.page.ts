@@ -25,13 +25,17 @@ export class OpinionsPage implements OnInit {
   }
 
   getOpinions(){
-    this.cont=0;
-    this.restService.getOpinions()
-    .then((res: any) => {
-      console.log("OBTENGO CICLOS");
-      this.opinions=res.data;
-      console.log(this.opinions);
-    })
+    this.restService.getUsers()
+       .then((res: any) => {
+         if(res.success){
+         this.opinions=res.data;
+         console.log(this.opinions);
+       }
+    },
+      (error)=>{
+        console.error(error);
+      }
+    );
   }
 
   async presentModal(headline, description, num_likes, create_at) {
