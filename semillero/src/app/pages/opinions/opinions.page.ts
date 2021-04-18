@@ -25,7 +25,7 @@ export class OpinionsPage implements OnInit {
   }
 
   getOpinions(){
-    this.restService.getUsers()
+    this.restService.getOpinions()
        .then((res: any) => {
          if(res.success){
          this.opinions=res.data;
