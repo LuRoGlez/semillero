@@ -54,7 +54,7 @@ export class LoginPage implements OnInit {
       if(this.token.success){
         console.log('Login correcto');
         if(this.token.data.type=="client"){
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/tabs');
         }else{
           this.router.navigateByUrl('/activate-user');
         }

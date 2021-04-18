@@ -23,6 +23,18 @@ const routes: Routes = [
     path: 'usuario-registrado',
     loadChildren: () => import('./pages/usuario-registrado/usuario-registrado.module').then( m => m.UsuarioRegistradoPageModule)
   },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'opinions',
+    loadChildren: () => import('./pages/opinions/opinions.module').then( m => m.OpinionsPageModule)
+  },
+  {
+    path: 'opi',
+    loadChildren: () => import('./pages/opi/opi.module').then( m => m.OpiPageModule)
+  },
 ];
 
 @NgModule({

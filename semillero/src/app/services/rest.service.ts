@@ -89,6 +89,22 @@ export class RestService {
       });
     }
 
+   
+    getOpinions(){
+      return new Promise<any>((resolve) => {
+        this.http.get(this.apiUrl + "/opinions"
+        ).subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err)
+          }
+        );
+      });
+    }
+     
+
      //getters and setters
   setToken(valor: any){
     this.tokenLogin= valor;
