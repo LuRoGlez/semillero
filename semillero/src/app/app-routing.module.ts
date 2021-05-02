@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'opi',
     loadChildren: () => import('./pages/opi/opi.module').then( m => m.OpiPageModule)
   },
+  {
+    path: 'plague',
+    loadChildren: () => import('./pages/plague/plague.module').then( m => m.PlaguePageModule)
+  },
 ];
 
 @NgModule({

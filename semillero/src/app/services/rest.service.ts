@@ -13,6 +13,7 @@ export class RestService {
   userId: any;
   actived: any;
   type: any;
+  opinionId: any;
   
   
 
@@ -91,14 +92,48 @@ export class RestService {
 
    
     getOpinions(){
-      return new Promise<any>((resolve) => {
-        this.http.get(this.apiUrl + "/opinions"
-        ).subscribe(
+      return new Promise((resolve) => {
+        this.http.get(this.apiUrl +"/opinions", {
+          headers: new HttpHeaders().set('Authorization','Bearer ' + this.tokenLogin),
+        }).subscribe(
           (data) => {
             resolve(data);
           },
           (err) => {
             console.log(err)
+          }
+        );
+      });
+    }
+
+    async giveLike(opinion_id: any, user_id: any) {
+      return new Promise<any>((resolve) => {
+        this.http.post(this.apiUrl + "/like", {
+          user_id: user_id,
+          opinion_id: opinion_id,}, {
+          headers: new HttpHeaders().set('Authorization','Bearer ' + this.tokenLogin),
+        }).subscribe(
+          (data) => {
+            console.log(data);
+            resolve(data);
+          },
+          (err) => {
+            console.log(err)
+          }
+        );
+      });
+    }
+
+    getPlagues() {
+      return new Promise((resolve) => {
+        this.http.get(this.apiUrl + "/plagues", {}).subscribe(
+          (data) => {
+            console.log(data);
+            resolve(data);
+           
+          },
+          (err) => {
+            console.log(err);
           }
         );
       });
@@ -138,5 +173,17 @@ export class RestService {
   getType(){
     return this.type;
   }
+
+  setOpinionId(valor: any){
+
+    this.opinionId=valor;
+  }
+
+  getOpinionId(){
+
+    return this.opinionId;
+  }
+
+
 
 }

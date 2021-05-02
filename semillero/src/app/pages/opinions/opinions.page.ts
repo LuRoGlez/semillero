@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { RestService } from '../../services/rest.service';
 import { OpiPage } from '../opi/opi.page';
@@ -11,14 +11,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./opinions.page.scss'],
 })
 export class OpinionsPage implements OnInit {
+  @Input() opinion_id: any;
 
-  opinions: any;
-  cont=0;
+  opinions: any[];
+  like=false;
+  //cont=0;
+  //token: any;
 
   constructor(public modalController: ModalController, 
     public restService: RestService,
     public router:Router) { 
-      this.getOpinions
+      this.getOpinions();
     }
 
   ngOnInit() {
@@ -32,13 +35,19 @@ export class OpinionsPage implements OnInit {
          console.log(this.opinions);
        }
     },
+    
       (error)=>{
         console.error(error);
       }
     );
   }
 
-  async presentModal(headline, description, num_likes, create_at) {
+  giveLike($dato: any){
+    this.restService.setOpinionId($dato);
+    this.restService.giveLike(this.restService.getUserId(),$dato);
+  }
+
+  async abrirModal(headline, description, num_likes, create_at) {
     const modal = await this.modalController.create({
       component: OpiPage,
       cssClass: 'my-custom-class',
