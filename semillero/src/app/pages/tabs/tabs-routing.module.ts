@@ -17,8 +17,8 @@ const routes: Routes = [
         loadChildren: () => import('./../../pages/plague/plague.module').then( m => m.PlaguePageModule)
       },
       {
-        path: 'login',
-        loadChildren: () => import('./../../pages/login/login.module').then( m => m.LoginPageModule)
+        path: 'productos',
+        loadChildren: () => import('./../../pages/productos/productos.module').then( m => m.ProductosPageModule)
       },
       {
         path: '',
