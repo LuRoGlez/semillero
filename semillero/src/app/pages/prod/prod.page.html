@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles del producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid clas="contenido">
+        <ion-row>
+            <ion-col size="4">
+                <ion-img [src]="img"></ion-img>
+            </ion-col>
+            <ion-col size="8"  class="nopadding">
+                <ion-text>
+                    <h1>{{name}}</h1>
+                    <ion-text>
+                    <p>{{how_to_use}}</p>
+                </ion-text>
+                </ion-text>                
+            </ion-col>
+        </ion-row>      
+            <div class="center">
+                <ion-button class="btncerrar" (click)="dismiss()">volver a productos</ion-button>
+            </div>    
+    </ion-grid>
+</ion-content>

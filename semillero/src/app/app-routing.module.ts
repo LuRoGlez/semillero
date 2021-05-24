@@ -38,11 +38,20 @@ const routes: Routes = [
   {
     path: 'plague',
     loadChildren: () => import('./pages/plague/plague.module').then( m => m.PlaguePageModule)
+  },  {
+    path: 'productos',
+    loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
+  },
+  {
+    path: 'prod',
+    loadChildren: () => import('./pages/prod/prod.module').then( m => m.ProdPageModule)
   },
   {
     path: 'tabsadmin',
     loadChildren: () => import('./pages/tabsadmin/tabsadmin.module').then( m => m.TabsadminPageModule)
   },
+];
+
 ];
 
 @NgModule({

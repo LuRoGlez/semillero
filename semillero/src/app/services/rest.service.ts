@@ -138,6 +138,21 @@ export class RestService {
         );
       });
     }
+
+    getProductos(){
+      return new Promise((resolve) => {
+        this.http.get(this.apiUrl +"/products", {
+          headers: new HttpHeaders().set('Authorization','Bearer ' + this.tokenLogin),
+        }).subscribe(
+          (data) => {
+            resolve(data);
+          },
+          (err) => {
+            console.log(err)
+          }
+        );
+      });
+    }
      
 
      //getters and setters
