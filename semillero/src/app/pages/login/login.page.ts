@@ -56,7 +56,7 @@ export class LoginPage implements OnInit {
         if(this.token.data.type=="client"){
           this.router.navigateByUrl('/tabs');
         }else{
-          this.router.navigateByUrl('/activate-user');
+          this.router.navigateByUrl('/tabsadmin');
         }
        }
     });

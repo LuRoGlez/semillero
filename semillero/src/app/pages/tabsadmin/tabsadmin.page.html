@@ -1,9 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>tabsadmin</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="activate-user" class="tabs">
+      <ion-icon name="person-add-outline"></ion-icon>
+      <ion-label class="estilo">activar usuario</ion-label>
+    </ion-tab-button>
 
-<ion-content>
+    <ion-tab-button tab="informes" class="tabs">
+      <ion-icon name="document-text-outline"></ion-icon>      <ion-label class="estilo">informes</ion-label>
+    </ion-tab-button>
 
-</ion-content>
+    <ion-tab-button tab="productos" class="tabs">
+    <ion-icon name="pricetags-outline"></ion-icon>
+      <ion-label class="estilo">productos</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

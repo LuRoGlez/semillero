@@ -38,7 +38,8 @@ const routes: Routes = [
   {
     path: 'plague',
     loadChildren: () => import('./pages/plague/plague.module').then( m => m.PlaguePageModule)
-  },  {
+  },
+  {
     path: 'productos',
     loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
   },
@@ -49,10 +50,14 @@ const routes: Routes = [
   {
     path: 'tabsadmin',
     loadChildren: () => import('./pages/tabsadmin/tabsadmin.module').then( m => m.TabsadminPageModule)
+  },  {
+    path: 'informes',
+    loadChildren: () => import('./pages/informes/informes.module').then( m => m.InformesPageModule)
   },
-];
 
 ];
+
+
 
 @NgModule({
   imports: [
