@@ -44,7 +44,7 @@ export class OpinionsPage implements OnInit {
 
   giveLike($dato: any){
     this.restService.setOpinionId($dato);
-    this.restService.giveLike(this.restService.getUserId(),$dato);
+    this.restService.giveLike($dato, this.restService.getUserId());
   }
 
   async abrirModal(headline, description, num_likes, create_at) {

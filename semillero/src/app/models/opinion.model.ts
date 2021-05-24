@@ -1,9 +1,3 @@
-export interface Plague {
-    id: number;
-    name: string;
-    img: string;
-}
-
 export interface Opinion {
     id: number;
     headline: string;

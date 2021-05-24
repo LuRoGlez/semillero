@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'plague',
     loadChildren: () => import('./pages/plague/plague.module').then( m => m.PlaguePageModule)
   },
+  {
+    path: 'tabsadmin',
+    loadChildren: () => import('./pages/tabsadmin/tabsadmin.module').then( m => m.TabsadminPageModule)
+  },
 ];
 
 @NgModule({
