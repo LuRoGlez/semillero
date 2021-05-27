@@ -5,5 +5,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-datetime  display-timezone="utc" placeholder="Introduce fecha anterior" [(ngModel)]="fecha1"></ion-datetime>
+  <ion-datetime  display-timezone="utc" placeholder="Introduce fecha posterior"  [(ngModel)]="fecha2"></ion-datetime>
 
+  <ion-button (click)="verID()">Generar PDF</ion-button>
+  
+  <span>{{fecha1}}</span>
 </ion-content>
