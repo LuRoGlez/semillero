@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../../services/rest.service';
 import { Router } from '@angular/router';
-import { Time } from '@angular/common';
-import { IonDatetime } from '@ionic/angular';
+import { jsPDF } from "jspdf";
+
 
 
 
@@ -13,6 +13,7 @@ import { IonDatetime } from '@ionic/angular';
 })
 export class InformesPage implements OnInit {
   opinions: any[];
+  vista = false;
   
   fecha1 : any;
   fecha2 : any;
@@ -42,18 +43,33 @@ export class InformesPage implements OnInit {
     );
   }
 
-  verID(){
+  descargarPDF(){
     this.getOpinions()
     let fechaInicio : Date = this.fecha1;
     let fechaFin : Date = this.fecha2;
-      this.opinions.forEach(function(e){
-        if(e.created_at >= fechaInicio && e.created_at <= fechaFin){
-          console.log(e.id)
-        }
+
+    let  text : string;
+
+    var doc = new jsPDF({ orientation: 'l', format: 'a4' });
+
+    doc.html(document.getElementById('pdf'), {
+           callback: function (doc) {
+               doc.addPage('a4', 'p');
+               doc.html(document.getElementById('pdf'), {
+                   callback: function (doc) {
+                       doc.output('dataurlnewwindow');
+                   }
+               });
+           }
+       });     
+    doc.save("informe.pdf")
     
-    });
     
     
+  }
+
+  previa(){
+    this.vista=true;
   }
 
 }

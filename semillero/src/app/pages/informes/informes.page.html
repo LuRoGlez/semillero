@@ -5,10 +5,28 @@
 </ion-header>
 
 <ion-content>
+  <p>Para generar un informe introduce dos fechas</p>
   <ion-datetime  display-timezone="utc" placeholder="Introduce fecha anterior" [(ngModel)]="fecha1"></ion-datetime>
   <ion-datetime  display-timezone="utc" placeholder="Introduce fecha posterior"  [(ngModel)]="fecha2"></ion-datetime>
-
-  <ion-button (click)="verID()">Generar PDF</ion-button>
+  <ion-button (click)="descargarPDF()" *ngIf="vista">Descargar PDF</ion-button>
+  <ion-button (click)="previa()" color=success>Generar Informe</ion-button>
+  <div id="pdf" *ngIf="vista">
+    <table>
+      <tr>
+        <th>Título</th>
+        <th>Comentario</th>
+        <th>Nombre de la Plaga</th>
+        <th>Nº Likes</th>
+        
+      </tr>
+      <tr *ngFor="let o of opinions" >
+        <td *ngIf="o.created_at >= fecha1 && o.created_at <= fecha2 && o.num_likes >= 5">{{o.headline}}</td>
+        <td *ngIf="o.created_at >= fecha1 && o.created_at <= fecha2 && o.num_likes >= 5">{{o.description}}</td>
+        <td *ngIf="o.created_at >= fecha1 && o.created_at <= fecha2 && o.num_likes >= 5">{{o.plague_name}}</td>
+        <td *ngIf="o.created_at >= fecha1 && o.created_at <= fecha2 && o.num_likes >= 5">{{o.num_likes}}</td>
+        
+      </tr>
+    </table>
+  </div>  
   
-  <span>{{fecha1}}</span>
 </ion-content>
