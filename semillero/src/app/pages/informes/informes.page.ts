@@ -44,11 +44,6 @@ export class InformesPage implements OnInit {
   }
 
   descargarPDF(){
-    this.getOpinions()
-    let fechaInicio : Date = this.fecha1;
-    let fechaFin : Date = this.fecha2;
-
-    let  text : string;
 
     var doc = new jsPDF({ orientation: 'l', format: 'a4' });
 
