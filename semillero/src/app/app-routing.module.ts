@@ -54,6 +54,10 @@ const routes: Routes = [
     path: 'informes',
     loadChildren: () => import('./pages/informes/informes.module').then( m => m.InformesPageModule)
   },
+  {
+    path: 'grafias',
+    loadChildren: () => import('./pages/grafias/grafias.module').then( m => m.GrafiasPageModule)
+  },
 
 ];
 
