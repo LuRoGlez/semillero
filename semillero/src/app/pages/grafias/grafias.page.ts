@@ -162,7 +162,7 @@ export class GrafiasPage implements AfterViewInit {
     });
   }
 
- 
+  // hacer npm i -S chart.js@^2
   
 
 }
