@@ -15,7 +15,7 @@ export class GrafiasPage implements AfterViewInit {
   opinions=[];
 
 
-  barChart: any;
+  polarChart: any;
   meses:any;
   arrayMeses = ["Ene","Feb","Mar","Abr","May","Jun",
   "Jul","Ago","Sep","Oct","Nov","Dic"];
@@ -28,7 +28,7 @@ export class GrafiasPage implements AfterViewInit {
   filtroMeses=[];
 
 
-  @ViewChild('grafico') public barCanvas: ElementRef
+  @ViewChild('grafico') public canvas: ElementRef
 
   constructor(
     public restService: RestService,
@@ -37,12 +37,12 @@ export class GrafiasPage implements AfterViewInit {
       this.nOpinions=[0,0,0,0,0,0];
       this.meses=[0,0,0,0,0,0];
       this.firstDate= null;
-     // this.date= new Date();
-     // this.firstDate = this.date.getFullYear();
-     // let mes=this.date.getMonth();
-      this.date= new Date().toISOString();
-      this.firstDate = parseInt(this.date.substring(0,4));
-      let mes=parseInt(this.date.substring(5,7));
+      this.date= new Date();
+      this.firstDate = this.date.getFullYear();
+      let mes=this.date.getMonth();
+      //this.date= new Date().toISOString();
+      //this.firstDate = parseInt(this.date.substring(0,4));
+      //let mes=parseInt(this.date.substring(5,7));
       this.meses.forEach(() => {
         mes = mes-this.contadorMes;
         if( mes<=0 || mes<-2){
@@ -115,9 +115,10 @@ export class GrafiasPage implements AfterViewInit {
   }
 
   setMes(){
+
     this.meses=this.meses.reverse();
     for(let i=0; i<this.meses.length; i++){
-      this.filtroMeses[i]=this.arrayMeses[this.meses[i]-1];
+      this.filtroMeses[i]=this.arrayMeses[i];
       this.filtroMeses;
     }
   }
@@ -128,7 +129,7 @@ export class GrafiasPage implements AfterViewInit {
 
 
   generarGrafico() {
-    this.barChart = new Chart(this.barCanvas.nativeElement, {
+    this.polarChart = new Chart(this.canvas.nativeElement, {
       type: 'polarArea',
       data: {
         labels: this.filtroMeses,
