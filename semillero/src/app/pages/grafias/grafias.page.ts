@@ -23,8 +23,6 @@ export class GrafiasPage implements AfterViewInit {
   contadorMes=0;
   nOpinions: any;
   date: any;
-  firstDate:number;
-  lastDate:number;
   filtroMeses=[];
 
 
@@ -36,19 +34,13 @@ export class GrafiasPage implements AfterViewInit {
     ) { 
       this.nOpinions=[0,0,0,0,0,0];
       this.meses=[0,0,0,0,0,0];
-      this.firstDate= null;
       this.date= new Date();
-      this.firstDate = this.date.getFullYear();
       let mes=this.date.getMonth();
-      //this.date= new Date().toISOString();
-      //this.firstDate = parseInt(this.date.substring(0,4));
-      //let mes=parseInt(this.date.substring(5,7));
       this.meses.forEach(() => {
         mes = mes-this.contadorMes;
         if( mes<=0 || mes<-2){
           mes=12;
           this.contadorMes=0;
-          this.lastDate=this.firstDate-1;
         }
         this.meses[this.contadorArrayMeses] = mes;
         this.contadorArrayMeses+=1;
@@ -69,7 +61,7 @@ export class GrafiasPage implements AfterViewInit {
   
 
   getOpinions(){
-    this.nOpinions = [6,5,5,6,2,0];
+    this.nOpinions = [0,0,0,0,0,0];
     this.opinions = null;
     this.restService.getOpinions().then(
       (res:any) => {
@@ -77,17 +69,17 @@ export class GrafiasPage implements AfterViewInit {
           this.opinions=res.data;
 
           this.opinions.forEach((o) => {
-            
               if (this.filtroPlagas == o.plague_id || this.filtroPlagas==0){
                 
-              var monthOpinion= new Date(o.create_at).getMonth();
-                                
+              var monthOpinion= new Date(o.created_at).getMonth();          
                 for(let i=0; i<this.meses.length; i++){
                   if(this.meses[i]==monthOpinion){
-                    this.nOpinions[i]+=1; 
+                    this.nOpinions[i]=this.nOpinions[i]+1; 
                   }}
                 }
-            });         
+                
+            }); 
+            console.log(this.opinions)      
         this.ngAfterViewInit();
       }
       return true;
@@ -120,7 +112,9 @@ export class GrafiasPage implements AfterViewInit {
     for(let i=0; i<this.meses.length; i++){
       this.filtroMeses[i]=this.arrayMeses[i];
       this.filtroMeses;
+      this.meses[i]=i;
     }
+ 
   }
 
    ngAfterViewInit(){
